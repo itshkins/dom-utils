@@ -25,7 +25,7 @@ setState({[`Hello`]: `State!`})
 
 ```js
 import {shallowReactive} from 'vue'
-import {useReactLocalState} from '@itshkins/dom-utils/vue'
+import {useVueLocalState} from '@itshkins/dom-utils/vue'
 
 const localState = useVueLocalState(`my-storage-key`, localStorage, (oldState) => oldState ?? {}, shallowReactive)
 localState[`Hello`] = `State!`
