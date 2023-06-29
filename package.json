@@ -1,6 +1,6 @@
 {
   "name": "@itshkins/dom-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "DOM utils",
   "main": "native.ts",
   "scripts": {
