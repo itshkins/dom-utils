@@ -11,9 +11,15 @@
     "url": "git+https://github.com/itshkins/dom-utils.git"
   },
   "keywords": [
+    "localStorage",
+    "sessionStorage",
     "vue",
-    "composables",
-    "directives"
+    "reactive",
+    "shallowReactive",
+    "ref",
+    "shallowRef",
+    "react",
+    "useState"
   ],
   "author": "itshkins",
   "license": "MIT",
