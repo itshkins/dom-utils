@@ -17,7 +17,7 @@ localState.setState(state)
 import {useState} from 'react'
 import {useReactLocalState} from '@itshkins/dom-utils/react'
 
-const [state, setState] = useReactLocalState(`my-storage-key`, localStorage, (oldState) => oldState ?? {})
+const [state, setState] = useReactLocalState(`my-storage-key`, localStorage, {})
 setState({[`Hello`]: `State!`})
 ```
 
@@ -27,6 +27,6 @@ setState({[`Hello`]: `State!`})
 import {shallowReactive} from 'vue'
 import {useVueLocalState} from '@itshkins/dom-utils/vue'
 
-const localState = useVueLocalState(`my-storage-key`, localStorage, (oldState) => oldState ?? {}, shallowReactive)
+const localState = useVueLocalState(`my-storage-key`, localStorage, {}, shallowReactive)
 localState[`Hello`] = `State!`
 ```

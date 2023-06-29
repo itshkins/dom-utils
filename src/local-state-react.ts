@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 
-import {LocalState} from './src/local-state'
+import {DEFAULT_STORAGE, LocalState} from './local-state'
 
-export const useReactLocalState = <TState>(key: string, storage: Storage, defaultState: TState): [
+export const useReactLocalState = <TState>(key: string, defaultState: TState, storage: Storage = DEFAULT_STORAGE): [
   TState,
   (state: TState) => void,
 ] => {

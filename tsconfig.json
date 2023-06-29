@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,10 +26,9 @@
     "paths": {}
   },
   "include": [
-    "directives/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "directives/**/*.test.ts"
+    "node_modules"
   ]
 }

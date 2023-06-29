@@ -27,4 +27,8 @@ export class LocalState {
   }
 }
 
+export let DEFAULT_STORAGE = localStorage
+
+export const newLocalState = (key: string, storage: Storage = DEFAULT_STORAGE) => new LocalState(key, storage)
+
 
