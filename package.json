@@ -1,6 +1,6 @@
 {
   "name": "@itshkins/dom-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "DOM utils",
   "main": "dist/native.js",
   "exports": {
