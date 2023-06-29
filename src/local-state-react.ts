@@ -7,7 +7,7 @@ export const useReactLocalState = <TState>(key: string, defaultState: TState, st
   (state: TState) => void,
 ] => {
   const localState = new LocalState(key, storage)
-  const [reactiveState, setReactiveState] = useState(() => localState.getState() ?? defaultState)
+  const [reactiveState, setReactiveState] = useState(() => localState.getState(defaultState))
 
   useEffect(reactiveState, () => {
     localState.setState(reactiveState)

@@ -22,7 +22,7 @@
     "jsx": "react",
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "baseUrl": "directives",
+    "baseUrl": "src",
     "paths": {}
   },
   "include": [
