@@ -1,3 +1,5 @@
+import {StorageStub} from './storage-stub'
+
 export class LocalState {
   // eslint-disable-next-line no-useless-constructor
   constructor(
@@ -27,8 +29,14 @@ export class LocalState {
   }
 }
 
-export let DEFAULT_STORAGE = localStorage
+export let defaultStorage = typeof window === `undefined`
+  ? new StorageStub()
+  : localStorage
 
-export const newLocalState = (key: string, storage: Storage = DEFAULT_STORAGE) => new LocalState(key, storage)
+export const setDefaultStorage = (storage: Storage) => {
+  defaultStorage = storage
+}
+
+export const newLocalState = (key: string, storage: Storage = defaultStorage) => new LocalState(key, storage)
 
 

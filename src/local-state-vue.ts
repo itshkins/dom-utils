@@ -1,11 +1,11 @@
 import {reactive, Ref, shallowReactive, watch} from 'vue'
 
-import {LocalState} from './local-state'
+import {defaultStorage, LocalState} from './local-state'
 
 export const vueLocalState = <TState>(
   key: string,
   defaultState: TState,
-  storage: Storage = localStorage,
+  storage: Storage = defaultStorage,
   toReactive: typeof reactive | typeof shallowReactive | { (state: TState): Ref<TState> } = reactive,
 ): TState => {
   const localState = new LocalState(key, storage)
