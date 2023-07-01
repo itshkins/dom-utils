@@ -39,6 +39,7 @@ export const newFrame = (callback: FrameRequestCallback) => {
       return
     }
     cancelAnimationFrame(frame)
+    frame = -1
   }
 
   const start = () => {

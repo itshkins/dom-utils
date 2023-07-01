@@ -121,6 +121,7 @@ var domUtils = (() => {
         return;
       }
       cancelAnimationFrame(frame);
+      frame = -1;
     };
     const start = () => {
       stop();
