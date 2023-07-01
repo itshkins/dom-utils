@@ -31,12 +31,10 @@ export class LocalState {
 
 export let defaultStorage = typeof window === `undefined`
   ? new StorageStub()
-  : localStorage
+  : window.localStorage
 
 export const setDefaultStorage = (storage: Storage) => {
   defaultStorage = storage
 }
 
 export const newLocalState = (key: string, storage: Storage = defaultStorage) => new LocalState(key, storage)
-
-

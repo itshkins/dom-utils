@@ -76,7 +76,7 @@ var domUtils = (() => {
       }
     }
   };
-  var defaultStorage = typeof window === `undefined` ? new StorageStub() : localStorage;
+  var defaultStorage = typeof window === `undefined` ? new StorageStub() : window.localStorage;
   var setDefaultStorage = (storage) => {
     defaultStorage = storage;
   };
