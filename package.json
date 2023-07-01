@@ -1,6 +1,6 @@
 {
   "name": "@itshkins/dom-utils",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "DOM utils",
   "type": "module",
   "main": "./dist/dom-utils.js",
