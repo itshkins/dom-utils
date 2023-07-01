@@ -13,9 +13,9 @@ npm i -E @itshkins/dom-utils
 <script>
   const localState = newLocalState(`my-key`)
   const defaultState = {}
-  expect(localState.getState(defaultState)).toBe(defaultState)
-  expect(localState.setState({value: []})).toBe(true)
-  expect(localState.getState(defaultState)).toEqual({value: []})
+  console.log(localState.getState(defaultState))
+  console.log(localState.setState({value: []}))
+  console.log(localState.getState(defaultState))
 </script>
 
 ```
