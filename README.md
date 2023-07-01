@@ -20,4 +20,8 @@ npm i @itshkins/dom-utils@latest
   console.log(localState.getState(DEFAULT_STATE)) // {value: Array(0)}
 </script>
 
+<script>
+
+</script>
+
 ```

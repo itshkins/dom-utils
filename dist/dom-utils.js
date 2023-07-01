@@ -23,8 +23,14 @@ var domUtils = (() => {
   __export(src_exports, {
     LocalState: () => LocalState,
     defaultStorage: () => defaultStorage,
+    newFrame: () => newFrame,
+    newListener: () => newListener,
     newLocalState: () => newLocalState,
-    setDefaultStorage: () => setDefaultStorage
+    newTimer: () => newTimer,
+    setDefaultStorage: () => setDefaultStorage,
+    useFrame: () => useFrame,
+    useListener: () => useListener,
+    useTimer: () => useTimer
   });
 
   // src/storage-stub.ts
@@ -81,5 +87,65 @@ var domUtils = (() => {
     defaultStorage = storage;
   };
   var newLocalState = (key, storage = defaultStorage) => new LocalState(key, storage);
+
+  // src/event-utils.ts
+  function newListener(target, type, callback, options) {
+    const stop = () => {
+      target.removeEventListener(type, callback, options);
+    };
+    const start = () => {
+      target.addEventListener(type, callback, options);
+    };
+    return { start, stop };
+  }
+  function newTimer(callback, timeout, once = true) {
+    let timer = -1;
+    const stop = () => {
+      if (timer === -1) {
+        return;
+      }
+      once ? clearTimeout(timer) : clearInterval(timer);
+      timer = -1;
+    };
+    const start = () => {
+      stop();
+      timer = once ? setTimeout(callback, timeout) : setInterval(callback, timeout);
+      return timer;
+    };
+    return { start, stop };
+  }
+  var newFrame = (callback) => {
+    let frame = -1;
+    const stop = () => {
+      if (frame === -1) {
+        return;
+      }
+      cancelAnimationFrame(frame);
+    };
+    const start = () => {
+      stop();
+      frame = requestAnimationFrame(callback);
+      return frame;
+    };
+    return { start, stop };
+  };
+  var useListener = (target, type, callback, options) => {
+    target.addEventListener(type, callback, options);
+    return function stopEvent() {
+      target.removeEventListener(type, callback, options);
+    };
+  };
+  var useTimer = (callback, timeout, once = true) => {
+    const timer = once ? setTimeout(callback, timeout) : setInterval(callback, timeout);
+    return function stopTimer() {
+      once ? clearTimeout(timer) : clearInterval(timer);
+    };
+  };
+  var useFrame = (callback) => {
+    const frame = requestAnimationFrame(callback);
+    return function stopFrame() {
+      cancelAnimationFrame(frame);
+    };
+  };
   return __toCommonJS(src_exports);
 })();

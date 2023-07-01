@@ -1,7 +1,6 @@
 #!/bin/bash
 
 COMMIT_MESSAGE="${1?:error - provide commit message}"
-PROJECT_DIR="$(realpath "$(dirname "$0")/..")"
 
 npm test \
   && npm version patch -f \
