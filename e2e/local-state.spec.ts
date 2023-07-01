@@ -17,7 +17,7 @@ try {
 
 test.describe(`LocalState`, () => {
   test(`writes and reads storage`, async ({page}) => {
-    const messages = []
+    const messages: string[] = []
     page.on(`console`, (message: ConsoleMessage) => {
       messages.push(message.text())
     })
@@ -27,7 +27,7 @@ test.describe(`LocalState`, () => {
   })
 
   test(`handles storage errors correctly`, async ({page}) => {
-    const messages = []
+    const messages: string[] = []
     page.on(`console`, (message: ConsoleMessage) => {
       messages.push(message.text())
     })
