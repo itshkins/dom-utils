@@ -1,12 +1,12 @@
 # DOM utils
 
-## Install
+## Installation
 
 ```bash
 npm i @itshkins/dom-utils@latest
 ```
 
-## Example
+## Usage
 
 ```html
 <script src="./node_modules/@itshkins/dom-utils/dist/dom-utils.js"></script>
