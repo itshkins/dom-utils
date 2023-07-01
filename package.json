@@ -1,6 +1,6 @@
 {
   "name": "@itshkins/dom-utils",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "DOM utils",
   "type": "module",
   "main": "./dist/dom-utils.js",
@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "esbuild ./src/index.ts --outfile=./dist/dom-utils.js --bundle --platform=browser --packages=external --global-name=domUtils",
-    "test": "jest src",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "jest src",
     "test:e2e": "npm run build && playwright test"
   },
   "repository": {
