@@ -1,14 +1,15 @@
 {
   "name": "@itshkins/dom-utils",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "DOM utils",
   "type": "module",
-  "main": "./dist/dom-utils.js",
-  "exports": {
-    ".": "./dist/dom-utils"
-  },
+  "main": "./dist/dom-utils.cjs",
   "scripts": {
-    "build": "esbuild ./src/index.ts --outfile=./dist/dom-utils.js --bundle --platform=browser --packages=external --global-name=domUtils",
+    "build": "npm run build:iife && npm run build:cjs && npm run build:esm && npm run build:dts && rm dist/index.js",
+    "build:iife": "esbuild ./src/index.ts --outfile=./dist/js-utils.js --bundle --platform=browser --packages=external --global-name=domUtils",
+    "build:cjs": "esbuild ./src/index.ts --outfile=./dist/js-utils.cjs --bundle --platform=node --format=cjs --packages=external",
+    "build:esm": "esbuild ./src/index.ts --outfile=./dist/js-utils.mjs --bundle --platform=node --format=esm --packages=external",
+    "build:dts": "node esbuild",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest src",
     "test:e2e": "npm run build && playwright test"
@@ -41,6 +42,7 @@
     "@playwright/test": "^1.35.1",
     "@types/jest": "29.5.2",
     "esbuild": "0.18.10",
+    "esbuild-plugin-d.ts": "1.1.0",
     "jest": "29.5.0",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
