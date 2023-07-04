@@ -1,5 +1,16 @@
 # DOM utils
 
+This package provides a set of DOM utilities.
+
+* One of them is a local state manager that simplifies the usage of Storage API:
+```js
+const KEY = `my-key`
+const storage = localStorage // or sessionStorage
+
+const state = JSON.parse(storage.getItem(KEY))
+storage.setItem(KEY, JSON.stringify({value: []}))
+```
+
 ## Installation
 
 ```bash
