@@ -4,11 +4,16 @@
   "description": "DOM utils",
   "type": "module",
   "main": "./dist/dom-utils.cjs",
+  "browser": "./dist/dom-utils.js",
+  "types": "./dist/dom-utils.d.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build:iife && npm run build:cjs && npm run build:esm && npm run build:dts && rm dist/index.js",
-    "build:iife": "esbuild ./src/index.ts --outfile=./dist/js-utils.js --bundle --platform=browser --packages=external --global-name=domUtils",
-    "build:cjs": "esbuild ./src/index.ts --outfile=./dist/js-utils.cjs --bundle --platform=node --format=cjs --packages=external",
-    "build:esm": "esbuild ./src/index.ts --outfile=./dist/js-utils.mjs --bundle --platform=node --format=esm --packages=external",
+    "build:iife": "esbuild ./src/index.ts --outfile=./dist/dom-utils.js --bundle --platform=browser --packages=external --global-name=domUtils",
+    "build:cjs": "esbuild ./src/index.ts --outfile=./dist/dom-utils.cjs --bundle --platform=node --format=cjs --packages=external",
+    "build:esm": "esbuild ./src/index.ts --outfile=./dist/dom-utils.mjs --bundle --platform=node --format=esm --packages=external",
     "build:dts": "node esbuild",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest src",

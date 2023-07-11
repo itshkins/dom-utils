@@ -19,7 +19,7 @@ npm i @itshkins/dom-utils@latest
 
 ## Usage
 
-### Bundler
+### Node
 
 ```js
 import {newLocalState} from '@itshkins/dom-utils'
