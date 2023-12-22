@@ -8,9 +8,9 @@ const TEST_LOCAL_STORAGE_JS = `
 try {
   const localState = domUtils.newLocalState('my-key')
   const defaultState = {}
-  console.log(JSON.stringify(structuredClone(localState.getState(defaultState))))
+  console.log(JSON.stringify(localState.getState(defaultState)))
   console.log(JSON.stringify(localState.setState({value: []})))
-  console.log(JSON.stringify(structuredClone(localState.getState(defaultState))))
+  console.log(JSON.stringify(localState.getState(defaultState)))
 } catch(err) {
   console.error(err)
 }`
